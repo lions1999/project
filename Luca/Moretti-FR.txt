@@ -1,7 +1,0 @@
-Functional Requirements about the project:
-
-1. The system shall provides a notice board, where all the news about the condominium are published.
-
-2. The system shall provides a pop-up notification tool, e-mail or message, sent by administrator.
-
-3. The system shall provides a condominum profile that contain all the information.
