@@ -1,8 +1,0 @@
-User Stories about the project:
-
-1. As an apartment resident, i want to have a conodminum notice board, so that i have all the informatin about the condominium.
-
-2. As a condominum administrator, i want to interact with all residents,so that i can orgainze meetings faster.
-
-3. As an owner of an apartment, i want to know if the occupant is up to date with payments, so that i does not have to call administrators
-every time.
