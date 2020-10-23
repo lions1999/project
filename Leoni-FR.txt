@@ -1,0 +1,6 @@
+1.The system shall provide a notification method.
+
+2.The system shall provide a section where the administrator can upload the files of the condominium.
+
+3.The system shall provide a login method, like google or facebook login.
+

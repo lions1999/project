@@ -1,0 +1,5 @@
+1.As a condominium resident, i want a tool to know when i have received a letter or a package, so that i don't kneed to check every time the mail box.
+
+2.As a condominium administrator i want a tool to save the registers of the condominium (like registry of personal data, registry of reunion verbal, registry of accounting), so that it can be easily available to condominium resident to consult them when needed.
+
+3.As a administrator i need a login method so that i can verify the identity of user and accept or rejects him.
