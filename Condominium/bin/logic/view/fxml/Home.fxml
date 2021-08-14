@@ -150,9 +150,18 @@
       </VBox>
       <StackPane layoutX="562.0" layoutY="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="562.0" AnchorPane.rightAnchor="537.0" AnchorPane.topAnchor="0.0">
          <children>
+            <Pane fx:id="pnlApartmentInfo">
+               <children>
+                  <Text layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Apartment" wrappingWidth="315.9999999999999">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
             <Pane fx:id="pnlHome" minWidth="-Infinity" StackPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="2.0" layoutY="-3.0" prefHeight="1048.0" prefWidth="829.0" vbarPolicy="NEVER">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="2.0" layoutY="3.0" prefHeight="1042.0" prefWidth="829.0" vbarPolicy="NEVER">
                      <content>
                         <VBox fx:id="scrollbarBox" spacing="5.0" style="-fx-background-color: white; -fx-border-color: #0C39FF;">
                            <padding>
@@ -163,16 +172,14 @@
                   </ScrollPane>
                </children>
             </Pane>
-            <Pane fx:id="pnlMeeting" />
-            <Pane fx:id="pnlApartmentInfo">
+            <Pane fx:id="pnlMeeting">
                <children>
-                  <Text layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Apartment" wrappingWidth="315.9999999999999">
+                  <Text layoutX="14.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Organize a Meeting" wrappingWidth="315.9999999999998">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Text>
-               </children>
-            </Pane>
+               </children></Pane>
          </children>
       </StackPane>
       <VBox layoutX="1491.0" layoutY="4.0" prefHeight="1076.0" prefWidth="524.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">

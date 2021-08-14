@@ -34,24 +34,26 @@
 		<a href="" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
 	</p>
 	<hr>
-	<form>
+	<form action="Login" method="post">
+	
     <div class="form-group">
-        <input name="" class="form-control" placeholder="Email or login" type="email">
+        <input name="uname" class="form-control" placeholder="Email or login" type="email">
     </div> <!-- form-group// -->
     <div class="form-group">
-        <input class="form-control" placeholder="******" type="password">
+        <input name="pass" class="form-control" placeholder="******" type="password">
     </div> <!-- form-group// -->                                      
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+                <button type="submit" value="login "class="btn btn-primary btn-block"> Login  </button>
             </div> <!-- form-group// -->
         </div>
         <div class="col-md-6 text-right">
             <button type="submit" class="btn btn-primary btn-block"> Clear  </button>
         </div>                                            
     </div> <!-- .row// -->                                                                  
-</form>
+
+	</form>
 </article>
 </div> <!-- card.// -->
 </body>
