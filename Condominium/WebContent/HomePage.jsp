@@ -4,30 +4,54 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome</title>
+	<link rel="stylesheet" href="css/style.css">
+	<title>Condominium  |  Home</title>
 </head>
 <body>
 
 	<%
-		
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		
 		response.setHeader("Pragma", "no-cache"); //HTTP 1.0
 		
 		response.setHeader("Expires", "0"); //Proxies
 	
-//		if(session.getAttribute("email")==null)
-//		{
-//			response.sendRedirect("Login.jsp");
-//		}
-	%>
-
-	Welcome ${email}
-
-	<a href="videos.jsp">Videos here</a>
+		if(session.getAttribute("username")==null)
+		{
+			response.sendRedirect("index.jsp");
+		}
+	%>	
+	<!-- NAVBAR -->
 	
-	<form action="Logout">
-		<input type="submit" value="logout">
-	</form>
+	<header>
+		<nav id="navbar">
+			<div class="container">
+
+				<h1 class="logo">
+					<a href="Logout">Logout</a>
+				</h1>
+				
+				<ul>
+					<li> <a class="current" href="HomePage.jsp">Home</a> </li>
+					<li> <a href="profile.html">Profile</a> </li>
+					<li> <a href="contact.html">Contact</a> </li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	
+	
+	
+	
+	<!-- SECTION -->
+	
+	<section id="showcase"> 
+		<div class="container">
+			<h1>Condominium <a href="cond-info.jsp">info</a></h1>
+		</div>
+	</section>
+	
+	
+	
 </body>
 </html>
