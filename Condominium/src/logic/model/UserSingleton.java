@@ -6,7 +6,7 @@ public class UserSingleton {
 	/*private Resident resident = null;
 	private Owner owner = null;*/
 	
-	private String role;
+	private Role role;
 
 	private String code;
 
@@ -22,7 +22,7 @@ public class UserSingleton {
 	}
 
 	public int getUserID() {
-		if (role.equals("ADMINISTRATOR"))
+		if (role.equals(Role.ADMINISTRATOR))
 			return this.administrator.getUserID();
 		/*if (role.equals(Role.RESIDENT))
 			return this.student.getUserID();
@@ -49,11 +49,11 @@ public class UserSingleton {
 		return this.code;
 	}
 
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 

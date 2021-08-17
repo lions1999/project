@@ -9,9 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import logic.model.User;
 import logic.dao.queries.SimpleQueries;
+import logic.model.User;
 
 public class CondominiumDAO {
 	

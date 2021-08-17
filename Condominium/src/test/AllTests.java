@@ -1,10 +1,11 @@
 package test;
 
-//import org.junit.Test;
+import org.junit.Test;
 //
 //import logic.model.*;
 //import logic.controller.HomeController;
-//import logic.dao.*;
+import logic.dao.*;
+import logic.model.Role;
 
 public class AllTests {
 
@@ -22,12 +23,12 @@ public class AllTests {
 //		System.out.println(log.checkLogin("lucamoretti@gmail.com", "lucamoretti"));
 //	}
 //	
-//	@Test
-//	public void TestLoginDAO2() throws Exception{
-//		LoginDAO log = new LoginDAO();
-//		
-//		System.out.println(log.checkRole("davideleoni@gmail.com"));
-//	}
+	@Test
+	public void TestLoginDAO2() throws Exception{
+		LoginDAO log = new LoginDAO();
+		
+		System.out.println(log.checkRole("lucamoretti@gmail.com"));
+	}
 //	
 //
 //	@Test
@@ -43,5 +44,6 @@ public class AllTests {
 //		
 //		post.checkImagePost(1, 12345);
 //	}
+	
 
 }
