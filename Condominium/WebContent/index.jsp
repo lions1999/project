@@ -4,21 +4,32 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
 <html>
 <head>
     <title>Login page</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <link href="css/style.css" rel="stylesheet">
     <style>
 .card{
 	margin: auto;
   	width: 30%;
   	border: 3px solid green;
   	padding: 10px;
+  	border-color: #0d6efd;
 }
+
+.btn-outline-info{
+	color: #f0800d;
+	border-color: #f0800d;
+}
+
+.btn-outline-info:hover{
+	background-color: #f0800d;
+	color: white;
+	border-color: #f0800d;
+}
+
  	</style>
 </head>
 
@@ -30,8 +41,8 @@
 	<a href="Register.jsp" class="float-right btn btn-outline-primary" >Sign up</a>
 	<h4 class="card-title mb-4 mt-1">Sign in</h4>
 	<p>
-		<a href="" class="btn btn-block btn-outline-info"> <i class="fab fa-google"></i>   Login via Google</a>
-		<a href="" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+		<a href="" class="btn btn-block btn-outline-info" >   <i class="fab fa-google"></i>   Login with Google</a>
+		<a href="" class="btn btn-block btn-outline-primary">   <i class="fab fa-facebook-f"></i>   Login with Facebook</a>
 	</p>
 	<hr>
 	<form action="Login" method="post">

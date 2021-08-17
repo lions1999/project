@@ -9,6 +9,20 @@
 </head>
 <body>
 
+	<%
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		
+		response.setHeader("Pragma", "no-cache"); //HTTP 1.0
+		
+		response.setHeader("Expires", "0"); //Proxies
+		
+		if(session.getAttribute("username")==null)
+		{
+			response.sendRedirect("index.jsp");
+		}
+		
+	%>
+
 <!-- NAVBAR -->
 	<header>
 		<nav id="navbar">
@@ -19,13 +33,13 @@
 				
 				<ul>
 					<li> <a href="HomePage.jsp">Home</a> </li>
-					<li> <a href="profile.html"> Profile</a> </li>
-					<li> <a href="contact.html"> Contact</a> </li>
+					<li> <a href="Profile.jsp"> Profile</a> </li>
+					<li> <a class="current" href="cond-info.jsp">Condominium</a> </li>
 				</ul>
 			</div>
 		</nav>		
 				
-		<nav id="secondary-navbar">
+		<!-- <nav id="secondary-navbar">
 			<div class="secondary-container">		
 				<ul>
 					<li> <a class="current" href="cond-info.html">Info</a> </li>
@@ -33,7 +47,7 @@
 					<li> <a href="cond-board.html">Board</a> </li>
 				</ul>
 			</div>
-		</nav>
+		</nav> -->
 				
 	</header>
 	

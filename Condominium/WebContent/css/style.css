@@ -15,6 +15,15 @@ a {
 }
 
 
+	/* INDEX LOGIN */
+	
+.card .card-body .btn btn-block btn-outline-info{
+	color: #f0800d;
+	border-color: #f0800d;
+}
+
+
+
 	/* HEADER  */
 
 
@@ -138,19 +147,19 @@ a {
 
 #profile-showcase img{
 	width: 90px;
+	align-items: center;
 	border-radius: 50%; 
 }
 
 #profile-showcase .profile-container .profile-img{
 	display: flex;
-	flex: left;
+	align-items: center;
 	flex-direction: column;
 	margin: 10px 0  0 20px;
 }
 
 #profile-showcase .profile-container .profile-img p{
-	width: 90px;
-	text-align: center;
+	display: flex;
 }
 
 #profile-showcase .profile-container .profile-info{

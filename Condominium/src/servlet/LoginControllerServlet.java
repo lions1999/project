@@ -33,6 +33,9 @@ public class LoginControllerServlet extends HttpServlet
 			{
 				HttpSession session = request.getSession();
 				session.setAttribute("username", email);
+				session.setAttribute("password", pass);
+				String role = dao.checkRole(email);
+				session.setAttribute("role", role);
 				response.sendRedirect("HomePage.jsp");
 			}
 			else
