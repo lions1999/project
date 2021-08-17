@@ -31,7 +31,7 @@ public class CondominiumDAO {
             // STEP 4: creazione ed esecuzione della query
             stmt = conn.createStatement();
             
-            ResultSet rs = SimpleQueries.selectCodnominiumList(stmt, CodiceCodnominio);
+            ResultSet rs = SimpleQueries.selectCondominiumList(stmt, CodiceCodnominio);
 
             if (!rs.first()){ // rs empty
             	Exception e = new Exception("No Condomnium Found matching with code: "+CodiceCodnominio);

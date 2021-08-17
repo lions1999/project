@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import logic.dao.queries.SimpleQueries;
-import logic.model.Role;
 
 public class LoginDAO {
 		
 	private boolean val = false;
 	private String role;
+	private int condominiumCode;
+	private String condominium;
 	
 	public  boolean checkLogin(String email,String password) throws Exception {		
 		
@@ -73,5 +74,67 @@ public class LoginDAO {
         }
         return this.role;
 	}
+	
+	
+	
+public int checkCondominiumCode(String email) throws Exception {	
+		
+        Statement stmt = null;
+        Connection conn = null;        
+        
+        try {
+        	
+            Class.forName("com.mysql.jdbc.Driver");
+
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/condominiumdb","root","");
+            
+            stmt = conn.createStatement();
+            
+            ResultSet rs = SimpleQueries.selectCondominiumCode(stmt, email);
+                        
+            
+            if(rs.next()) {
+            	this.condominiumCode = rs.getInt("CodiceCondominioFK");
+            }
+            
+        } finally {
+        	
+                if (stmt != null)
+                    stmt.close();
+                if (conn != null)
+                    conn.close();
+        }
+        return this.condominiumCode;
+	}
+
+public  String checkCondominium(int condCode) throws Exception {	
+	
+    Statement stmt = null;
+    Connection conn = null;        
+    
+    try {
+    	
+        Class.forName("com.mysql.jdbc.Driver");
+
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/condominiumdb","root","");
+        
+        stmt = conn.createStatement();
+        
+        ResultSet rs = SimpleQueries.selectCondominiumList(stmt, condCode);
+                    
+        
+        if(rs.next()) {
+        	this.condominium = rs.getString("Via");
+        }
+        
+    } finally {
+    	
+            if (stmt != null)
+                stmt.close();
+            if (conn != null)
+                conn.close();
+    }
+    return this.condominium;
+}
 	
 }

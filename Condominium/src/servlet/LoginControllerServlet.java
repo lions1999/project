@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import logic.dao.LoginDAO;
 
 @WebServlet("/Login")
@@ -36,11 +37,15 @@ public class LoginControllerServlet extends HttpServlet
 				session.setAttribute("password", pass);
 				String role = dao.checkRole(email);
 				session.setAttribute("role", role);
+				int condominiumCode = dao.checkCondominiumCode(email);
+				session.setAttribute("condCode", condominiumCode);
+				String condominium = dao.checkCondominium(condominiumCode);
+				session.setAttribute("cond", condominium);
 				response.sendRedirect("HomePage.jsp");
 			}
 			else
 			{
-				response.sendRedirect("Login.jsp");
+				response.sendRedirect("index.jsp");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

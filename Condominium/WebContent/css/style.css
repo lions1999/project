@@ -15,15 +15,6 @@ a {
 }
 
 
-	/* INDEX LOGIN */
-	
-.card .card-body .btn btn-block btn-outline-info{
-	color: #f0800d;
-	border-color: #f0800d;
-}
-
-
-
 	/* HEADER  */
 
 
@@ -169,6 +160,47 @@ a {
 }
 
 #profile-showcase .profile-container .profile-info p{
+	padding: 15px;
+	font-size: 26px;
+}
+
+	/* CONDOMINIUM SECTION */
+	
+#condominium-showcase{
+	background: #315588;
+	width: 100%;
+}
+
+#condominium-showcase .condominium-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}	
+
+#condominium-showcase img{
+	width: 90px;
+	align-items: center;
+	border-radius: 50%; 
+}
+
+#condominium-showcase .condominium-container .condominium-img{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 10px 0  0 20px;
+}
+
+#condominium-showcase .condominium-container .condominium-img p{
+	display: flex;
+}
+
+#condominium-showcase .condominium-container .condominium-info{
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+}
+
+#condominium-showcase .condominium-container .condominium-info p{
 	padding: 15px;
 	font-size: 26px;
 }

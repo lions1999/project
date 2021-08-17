@@ -16,6 +16,9 @@
 		
 		response.setHeader("Expires", "0"); //Proxies
 		
+		session.getAttribute("condCode");
+		session.getAttribute("cond");
+		
 		if(session.getAttribute("username")==null)
 		{
 			response.sendRedirect("index.jsp");
@@ -23,7 +26,7 @@
 		
 	%>
 
-<!-- NAVBAR -->
+	<!-- NAVBAR -->
 	<header>
 		<nav id="navbar">
 			<div class="container">
@@ -37,24 +40,26 @@
 					<li> <a class="current" href="cond-info.jsp">Condominium</a> </li>
 				</ul>
 			</div>
-		</nav>		
-				
-		<!-- <nav id="secondary-navbar">
-			<div class="secondary-container">		
-				<ul>
-					<li> <a class="current" href="cond-info.html">Info</a> </li>
-					<li> <a href="cond-meetings.html">Meetings</a> </li>
-					<li> <a href="cond-board.html">Board</a> </li>
-				</ul>
-			</div>
-		</nav> -->
-				
+		</nav>				
 	</header>
-	
-	
+		
 	<!-- SECTION -->
+	<section id="condominium-showcase">
 	
-	
+		<div class="condominium-container">
+			<div class="condominium-img">
+				<img alt="condominium" src="./img/utente.jpg">
+			<p> ${role}</p>
+			</div>
+			<div class="condominium-info">
+				<p>Condominio : ${cond}</p>
+				<p>Code: ${condCode}</p>
+			</div>
+		</div>
+		
 
+
+	</section>
+	
 </body>
 </html>
