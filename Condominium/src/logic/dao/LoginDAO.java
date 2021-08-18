@@ -9,67 +9,58 @@ import logic.dao.queries.SimpleQueries;
 import logic.model.Role;
 
 public class LoginDAO {
-		
-	private boolean val = false;
-	private String role;
+			
+	private static final String DRIVER = "com.mysql.jdbc.Driver";
+	private static final String URL = "jdbc:mysql://localhost:3306/condominiumdb";
+	private static final String USER = "condominium";
+	private static final String PASSWORD = "ispw2021";
 	
-	public  boolean checkLogin(String email,String password) throws Exception {		
-		
-        Statement stmt = null;
-        Connection conn = null;        
-        
-        try {
-        	
-            Class.forName("com.mysql.jdbc.Driver");
-
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/condominiumdb","root","");
-            
-            stmt = conn.createStatement();
-            
-            ResultSet rs = SimpleQueries.selectLogin(stmt, email, password);
-            
+	private Statement stmt;
+	private Connection conn;
+	
+	private Role role;
+	private boolean val = false;
+	
+	public LoginDAO() {
+		this.stmt = null;
+		this.conn = null;
+	}
+	
+	private void connect() throws Exception {
+		 Class.forName(DRIVER);
+		 conn = DriverManager.getConnection(URL,USER,PASSWORD);
+		 stmt = conn.createStatement();
+	}
+	
+	private void disconnect() throws Exception{
+        if (stmt != null)
+            stmt.close();
+        if (conn != null)
+            conn.close();
+	}
+	
+	public  boolean checkLogin(String email,String password) throws Exception {		                
+        try {        	
+        	connect();           
+            ResultSet rs = SimpleQueries.selectLogin(stmt, email, password);           
             if(rs.next()) {
             	this.val = true;
             }
-        } finally {
-        	
-                if (stmt != null)
-                    stmt.close();
-                if (conn != null)
-                    conn.close();
+        } finally {       	
+        	disconnect();
         }
         return this.val;
 	}
-	
-	
-	
-	
-	public  String checkRole(String email) throws Exception {		
 		
-        Statement stmt = null;
-        Connection conn = null;        
-        
+	public  Role checkRole(String email) throws Exception {				
         try {
-        	
-            Class.forName("com.mysql.jdbc.Driver");
-
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/condominiumdb","root","");
-            
-            stmt = conn.createStatement();
-            
-            ResultSet rs = SimpleQueries.selectRole(stmt,email);
-                        
-            
+        	connect();            
+            ResultSet rs = SimpleQueries.selectRole(stmt,email);                                    
             if(rs.next()) {
-            	this.role = rs.getString("Ruolo");
-            }
-            
+            	this.role = Role.valueOf(rs.getString("Ruolo"));
+            }            
         } finally {
-        	
-                if (stmt != null)
-                    stmt.close();
-                if (conn != null)
-                    conn.close();
+        		disconnect();
         }
         return this.role;
 	}

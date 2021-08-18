@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 
 public class SimpleQueries {
-
+	
     public static ResultSet selectCodnominiumList(Statement stmt, int CodiceCondominio) throws SQLException  {
         String sql = "SELECT * FROM users where CodiceCondominioFK = '" + CodiceCondominio + "';";
         System.out.println(sql);
