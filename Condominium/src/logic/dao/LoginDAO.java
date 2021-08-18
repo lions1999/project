@@ -18,7 +18,11 @@ public class LoginDAO {
 	private Statement stmt;
 	private Connection conn;
 	
-	private Role role;
+	private String role;
+	private int condominiumCode;
+	private String condominium;
+	
+	//private Role role;
 	private boolean val = false;
 	
 	public LoginDAO() {
@@ -52,12 +56,12 @@ public class LoginDAO {
         return this.val;
 	}
 		
-	public  Role checkRole(String email) throws Exception {				
+	public  String checkRole(String email) throws Exception {				
         try {
         	connect();            
             ResultSet rs = SimpleQueries.selectRole(stmt,email);                                    
             if(rs.next()) {
-            	this.role = Role.valueOf(rs.getString("Ruolo"));
+            	this.role = rs.getString("Ruolo");
             }            
         } finally {
         		disconnect();
@@ -65,4 +69,47 @@ public class LoginDAO {
         return this.role;
 	}
 	
+public int checkCondominiumCode(String email) throws Exception {	
+		        
+        
+        try {
+        	
+            connect(); 
+            
+            ResultSet rs = SimpleQueries.selectCondominiumCode(stmt, email);
+                        
+            
+            if(rs.next()) {
+            	this.condominiumCode = rs.getInt("CodiceCondominioFK");
+            }
+            
+        } finally {
+        	
+                disconnect();
+        }
+        return this.condominiumCode;
+	}
+
+public  String checkCondominium(int condCode) throws Exception {	
+	        
+    
+    try {
+    	
+        connect(); 
+        
+        ResultSet rs = SimpleQueries.selectCondominiumList(stmt, condCode);
+                    
+        
+        if(rs.next()) {
+        	this.condominium = rs.getString("Via");
+        }
+        
+    } finally {
+    	
+            disconnect();
+    }
+    return this.condominium;
+	}
+	
 }
+	
