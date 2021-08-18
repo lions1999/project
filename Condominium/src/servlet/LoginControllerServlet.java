@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-import logic.dao.LoginDAO;
+import logic.dao.SqlDAO;
 
 @WebServlet("/Login")
 public class LoginControllerServlet extends HttpServlet 
@@ -26,7 +26,7 @@ public class LoginControllerServlet extends HttpServlet
 		String email = request.getParameter("uname");
 		String pass = request.getParameter("pass");
 		
-		LoginDAO dao = new LoginDAO();
+		SqlDAO dao = new SqlDAO();
 		
 		
 		try {
@@ -35,7 +35,7 @@ public class LoginControllerServlet extends HttpServlet
 				HttpSession session = request.getSession();
 				session.setAttribute("username", email);
 				session.setAttribute("password", pass);
-				String role = dao.checkRole(email);
+				String role = dao.checkRole(email).toString();
 				session.setAttribute("role", role);
 				int condominiumCode = dao.checkCondominiumCode(email);
 				session.setAttribute("condCode", condominiumCode);

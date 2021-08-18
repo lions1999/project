@@ -2,19 +2,21 @@ package logic.controller;
 
 import logic.bean.UserBean;
 import logic.controller.exception.InvalidInputException;
-import logic.dao.LoginDAO;
+import logic.dao.SqlDAO;
 import logic.model.UserSingleton;
 //import logic.model.Administrator;
 
 public class LoginController {
-	private LoginDAO ourDB = new LoginDAO();
+	private SqlDAO ourDB = new SqlDAO();
 	private static UserSingleton sg = UserSingleton.getInstance();
 
 	public void login(UserBean bean) throws InvalidInputException, Exception {
 		if (checkBean(bean)) {
+			
 			sg.setRole(ourDB.checkRole(bean.getEmail()));
 				switch (sg.getRole()) {
 				case ADMINISTRATOR:
+					//Administrator admin = ourDB.getUserIDfromEmail(bean.getEmail());
 				break;
 				case RESIDENT:
 				break;
@@ -45,12 +47,8 @@ public class LoginController {
 
 
 	public boolean checkBean(UserBean bean) throws InvalidInputException, Exception {
-		if(ourDB.checkLogin( bean.getEmail(),  bean.getPassword())) {
-			return true;
-		}
-		return false;
+		return ourDB.checkLogin( bean.getEmail()).equals(bean.getPassword());
 	}
-
 	
 }
 
