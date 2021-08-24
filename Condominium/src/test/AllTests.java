@@ -5,6 +5,7 @@ import org.junit.Test;
 //import logic.model.*;
 //import logic.controller.HomeController;
 import logic.dao.*;
+import logic.view.RegisterView;
 
 public class AllTests {
 
@@ -14,13 +15,13 @@ public class AllTests {
 //		
 //		System.out.println(dao.retreiveByCondominumList(12345));
 //	}
-	
-	@Test
-	public void TestLoginDAO() throws Exception{
-		SqlDAO log = new SqlDAO();
-		
-		System.out.println(log.checkLogin("lucamoretti@gmail.com"));
-	}
+//	
+//	@Test
+//	public void TestLoginDAO() throws Exception{
+//		SqlDAO log = new SqlDAO();
+//		
+//		System.out.println(log.checkLogin("lucamoretti@gmail.com","12345"));
+//	}
 //	
 //	@Test
 //	public void TestLoginRole() throws Exception{
@@ -43,6 +44,5 @@ public class AllTests {
 //		
 //		post.checkImagePost(1, 12345);
 //	}
-//}
-
+//
 }

@@ -21,13 +21,10 @@ public class SqlDAO {
 	private Connection conn;
 	
 	private Role role;
-	private int ID;
-	private String password;
+	private int id;
+	private String pwd;
 	private int condominiumCode;
 	private String condominium;
-	
-	//private Role role;
-	private boolean val = false;
 	
 	public SqlDAO() {
 		this.stmt = null;
@@ -47,34 +44,31 @@ public class SqlDAO {
             conn.close();
 	}
 	
-	//public User 
-	
-	
-	public int getUserIDfromEmail(String email) throws SQLException{
+	public int getUserIDfromEmail(String email,String condominiumCode) throws SQLException{
 		 try {        	
 	        	connect();           
-	            ResultSet rs = SimpleQueries.getUserIDfromEmail(stmt, email);           
+	            ResultSet rs = SimpleQueries.getUserIDfromEmail(stmt, email,condominiumCode);           
 	            if(rs.next()) {
-	            	this.ID = rs.getInt("ID");
+	            	this.id = rs.getInt("ID");
 	            }
 	        } finally {       	
 	        	disconnect();
 	        }
-	        return this.ID;
+	        return this.id;
 	}
 	
 	
-	public  String checkLogin(String email) throws SQLException {		                
+	public  String checkLogin(String email,String condominiumCode) throws SQLException {		                
         try {        	
         	connect();           
-            ResultSet rs = SimpleQueries.selectLogin(stmt, email);           
+            ResultSet rs = SimpleQueries.selectLogin(stmt, email, condominiumCode);           
             if(rs.next()) {
-            	this.password = rs.getString("Password");
+            	this.pwd = rs.getString("Password");
             }
         } finally {       	
         	disconnect();
         }
-        return this.password;
+        return this.pwd;
 	}
 	
 		

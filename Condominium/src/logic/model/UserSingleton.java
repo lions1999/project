@@ -23,16 +23,16 @@ public class UserSingleton {
 		return instance;
 	}
 
-	public int getUserID() {
+	/*public int getUserID() {
 		if (role.equals(Role.ADMINISTRATOR))
 			return this.administrator.getUserID();
-		/*if (role.equals(Role.RESIDENT))
+		if (role.equals(Role.RESIDENT))
 			return this.student.getUserID();
 		if (role.equals(Role.OWNER))
-			return this.student.getUserID();*/
+			return this.student.getUserID();
 		else
 			return 0;
-	}
+	}*/
 	
 	public void setUserID(int id) {
 		this.id = id;

@@ -8,14 +8,14 @@ import java.sql.Statement;
 public class SimpleQueries {
 	
 	
-    public static ResultSet getUserIDfromEmail(Statement stmt, String email)  throws SQLException {
-		String sql= "SELECT ID from users where Email='"+email+"'";
+    public static ResultSet getUserIDfromEmail(Statement stmt, String email,String condominiumCode)  throws SQLException {
+		String sql= "SELECT ID from users where Email='"+email+"'and CodiceCondominioFK='"+condominiumCode+"'";
 		System.out.println(sql);
 		return stmt.executeQuery(sql);	
     }
 		
-    public static ResultSet selectCondominiumList(Statement stmt, int CodiceCondominio) throws SQLException  {
-        String sql = "SELECT * FROM condominiums where CodiceCondominio = '" + CodiceCondominio + "';";
+    public static ResultSet selectCondominiumList(Statement stmt, int condominiumCode) throws SQLException  {
+        String sql = "SELECT * FROM condominiums where CodiceCondominio = '" + condominiumCode + "';";
         System.out.println(sql);
         return stmt.executeQuery(sql);
     }
@@ -26,9 +26,9 @@ public class SimpleQueries {
         return stmt.executeQuery(sql);
     }
     
-    public static ResultSet selectLogin(Statement stmt, String email)  throws SQLException {
+    public static ResultSet selectLogin(Statement stmt, String email,String condominiumCode)  throws SQLException {
 
-		String sql= "SELECT Password from users where Email='"+email+"'";
+		String sql= "SELECT Password from users where Email='"+email+"'and CodiceCondominioFK='"+condominiumCode+"'";
 		System.out.println(sql);
 		return stmt.executeQuery(sql);
 	
@@ -39,8 +39,8 @@ public class SimpleQueries {
         System.out.println(sql);
         return stmt.executeQuery(sql);
     }
-    public static ResultSet selectPostImage(Statement stmt,int id,int CodiceCondominio) throws SQLException  {
-        String sql = "SELECT Image FROM posts where ID='"+id+"' and CodiceCondominioFK='"+CodiceCondominio+"'";
+    public static ResultSet selectPostImage(Statement stmt,int id,int condominiumCode) throws SQLException  {
+        String sql = "SELECT Image FROM posts where ID='"+id+"' and CodiceCondominioFK='"+condominiumCode+"'";
         System.out.println(sql);
         return stmt.executeQuery(sql);
     }

@@ -47,7 +47,7 @@ public class LoginController {
 
 
 	public boolean checkBean(UserBean bean) throws InvalidInputException, Exception {
-		return ourDB.checkLogin( bean.getEmail()).equals(bean.getPassword());
+		return ourDB.checkLogin( bean.getEmail(),bean.getCondominiumCode()).equals(bean.getPassword());
 	}
 	
 }
