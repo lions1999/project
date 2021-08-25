@@ -16,7 +16,7 @@
 		
 		response.setHeader("Expires", "0"); //Proxies
 		
-		session.getAttribute("condCode");
+		session.getAttribute("codiceCondominio");
 		session.getAttribute("cond");
 		
 		if(session.getAttribute("username")==null)
@@ -53,7 +53,7 @@
 			</div>
 			<div class="condominium-info">
 				<p>Condominio : ${cond}</p>
-				<p>Code: ${condCode}</p>
+				<p>Code: ${codiceCondominio}</p>
 			</div>
 		</div>
 		

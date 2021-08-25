@@ -25,20 +25,20 @@ public class LoginControllerServlet extends HttpServlet
 	{
 		String email = request.getParameter("uname");
 		String pass = request.getParameter("pass");
+		int condominiumCode = Integer.parseInt(request.getParameter("codiceCondominio"));
 		
 		SqlDAO dao = new SqlDAO();
 		
 		
 		try {
-			if(dao.checkLogin(email, pass))
+			if(dao.checkLogin(email).equals(pass))
 			{
 				HttpSession session = request.getSession();
 				session.setAttribute("username", email);
 				session.setAttribute("password", pass);
+				session.setAttribute("codiceCondominio", condominiumCode);
 				String role = dao.checkRole(email).toString();
 				session.setAttribute("role", role);
-				int condominiumCode = dao.checkCondominiumCode(email);
-				session.setAttribute("condCode", condominiumCode);
 				String condominium = dao.checkCondominium(condominiumCode);
 				session.setAttribute("cond", condominium);
 				response.sendRedirect("HomePage.jsp");
@@ -54,6 +54,7 @@ public class LoginControllerServlet extends HttpServlet
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 	
 }
