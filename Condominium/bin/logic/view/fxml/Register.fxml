@@ -32,12 +32,12 @@
       </AnchorPane>
       <VBox layoutX="488.0" layoutY="-10.0" prefHeight="448.0" prefWidth="275.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="10.0">
          <children>
-            <TextField fx:id="tfnome" prefHeight="40.0" promptText="name">
+            <TextField fx:id="tfname" prefHeight="40.0" promptText="name">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="tfcognome" prefHeight="40.0" promptText="surname">
+            <TextField fx:id="tfsurname" prefHeight="40.0" promptText="surname">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>

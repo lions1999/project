@@ -31,7 +31,7 @@ public class LoginControllerServlet extends HttpServlet
 		
 		
 		try {
-			if(dao.checkLogin(email).equals(pass))
+			if(dao.checkLogin(email,pass).equals(pass))
 			{
 				HttpSession session = request.getSession();
 				session.setAttribute("username", email);
