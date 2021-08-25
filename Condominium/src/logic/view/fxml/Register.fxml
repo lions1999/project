@@ -3,18 +3,17 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.RegisterView">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="logic.view.RegisterView">
    <children>
       <AnchorPane layoutX="-1.0" layoutY="-1.0" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #0C39FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -30,14 +29,14 @@
             </Label>
          </children>
       </AnchorPane>
-      <VBox layoutX="488.0" layoutY="-10.0" prefHeight="448.0" prefWidth="275.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="10.0">
+      <VBox layoutX="488.0" layoutY="-10.0" prefHeight="448.0" prefWidth="275.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="50.0">
          <children>
-            <TextField fx:id="tfname" prefHeight="40.0" promptText="name">
+            <TextField fx:id="tfName" prefHeight="40.0" promptText="name">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="tfsurname" prefHeight="40.0" promptText="surname">
+            <TextField fx:id="tfSurname" prefHeight="40.0" promptText="surname">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -45,7 +44,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="tfemail" prefHeight="40.0" promptText="email">
+            <TextField fx:id="tfEmail" prefHeight="40.0" promptText="email">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -53,7 +52,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="tfpassword" prefHeight="40.0" promptText="password">
+            <PasswordField fx:id="tfPassword" prefHeight="40.0" promptText="password">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -61,7 +60,7 @@
                   <Font size="18.0" />
                </font>
             </PasswordField>
-            <PasswordField fx:id="tfconfirmpassword" prefHeight="40.0" promptText="confirm password">
+            <PasswordField fx:id="tfOkPwd" prefHeight="40.0" promptText="confirm password">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -69,42 +68,28 @@
                   <Font size="18.0" />
                </font>
             </PasswordField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Witch role you cover in the condominium?" wrappingWidth="360.5999755859375">
+            <MenuButton mnemonicParsing="false" prefWidth="450.0" stylesheets="@fullpackstyling.css" text="Role in your condominium?">
+              <items>
+                <MenuItem fx:id="mnuAdmin" mnemonicParsing="false" onAction="#onMnuAdminClick" text="Administrator" />
+                <MenuItem fx:id="mnuResident" mnemonicParsing="false" onAction="#onMnuResidentClick" text="Resident" />
+                  <MenuItem fx:id="mnuOwner" mnemonicParsing="false" onAction="#onMnuOwnerClick" text="Owner" />
+              </items>
                <font>
                   <Font size="18.0" />
                </font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
-            </Text>
-            <RadioButton fx:id="rbadmin" mnemonicParsing="false" prefHeight="27.0" prefWidth="234.0" text="Administrator">
-               <toggleGroup>
-                  <ToggleGroup fx:id="grup" />
-               </toggleGroup>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
+            </MenuButton>
+            <Label fx:id="lbRole" text="No Role Selected" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
-            </RadioButton>
-            <RadioButton fx:id="rbowner" mnemonicParsing="false" prefHeight="27.0" prefWidth="211.0" text="Owner" toggleGroup="$grup">
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="120.0" top="10.0" />
                </VBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <RadioButton fx:id="rbresident" mnemonicParsing="false" prefHeight="27.0" prefWidth="318.0" text="Resident" toggleGroup="$grup">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <TextField fx:id="tfcondominiumCode" prefHeight="40.0" promptText="Condominiuim-Code">
+            </Label>
+            <TextField fx:id="tfCondominiumCode" prefHeight="40.0" promptText="Condominiuim-Code">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>

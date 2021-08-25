@@ -31,12 +31,13 @@ public class LoginView extends Application {
 	    @FXML
 	    private void onSignupClick() {	    	
 	    	RegisterView reg = new RegisterView();
-	    	reg.start((Stage) btnSignup.getScene().getWindow());	    	
+	    	reg.start((Stage) btnSignup.getScene().getWindow());
+	    	
 	    }
 	    
 	    
 	    @FXML
-	    private void onSigninClick() throws Exception{
+	    private void onSigninClick() {
 	    	UserBean bean = createBean(tfemail.getText(), tfpassword.getText(),tfcc.getText());
 			LoginController controller = new LoginController();
 			try {

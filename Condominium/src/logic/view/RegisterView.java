@@ -1,8 +1,12 @@
 package logic.view;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -14,36 +18,49 @@ import logic.controller.ViewController;
 import logic.model.Role;
 
 public class RegisterView extends Application{
-
-	private ViewController view = new ViewController();
+	 
+	private ViewController view = new ViewController();	
 	private Stage stage = new Stage();
 	private Role role;
+	private String noRole = "No Role Selected";
+
 
     @FXML
-    private TextField tfname;
+    private TextField tfName;
+    @FXML
+    private TextField tfSurname;
+    @FXML
+    private TextField tfEmail;
+    @FXML
+    private PasswordField tfPassword;
+    @FXML
+    private PasswordField tfOkPwd;
+    @FXML
+    private MenuItem mnuAdmin;
+    @FXML
+    private MenuItem mnuResident;
+    @FXML
+    private MenuItem mnuOwner;
+    @FXML
+    private Label lbRole;
+    @FXML
+    private TextField tfCondominiumCode;
     @FXML
     private Button btnSignup;
     @FXML
-    private TextField tfsurname;
-    @FXML
-    private TextField tfemail;
-    @FXML
-    private PasswordField tfpassword;
-    @FXML
-    private PasswordField tfconfirmpassword;
-    @FXML
-    private RadioButton rbadmin;
-    @FXML
-    private ToggleGroup grup;
-    @FXML
-    private RadioButton rbowner;
-    @FXML
-    private RadioButton rbresident;
-    @FXML
-    private TextField tfcondominiumCode;
-    @FXML
     private Button btnSignin;
-
+    @FXML
+    void onMnuAdminClick() {
+    	lbRole.setText(mnuAdmin.getText());
+    }
+    @FXML
+    void onMnuResidentClick() {
+    	lbRole.setText(mnuResident.getText());
+    }
+    @FXML
+    void onMnuOwnerClick() {
+    	lbRole.setText(mnuOwner.getText());
+    }
     @FXML
     void onSigninClick() {
     	LoginView reg = new LoginView();
@@ -52,27 +69,39 @@ public class RegisterView extends Application{
 
     @FXML
     void onSignupClick(){
-    	if (tfname.getText().isEmpty() || tfsurname.getText().isEmpty() || tfemail.getText().isEmpty() || 
-    		tfpassword.getText().isEmpty() || tfconfirmpassword.getText().isEmpty()) {
-    		view.loadPage("Alert",stage);
-    		
-    		System.out.println("nessun niuente");
-    	} else if(grup.getSelectedToggle() == null) {
-    		view.loadPage("Alert",stage);
-    		System.out.println("nessun ruolo");    	
-    	} else if (tfcondominiumCode.getText().isEmpty()) {
-    		view.loadPage("Alert",stage);
-    		System.out.println("nessun cc");
-    	} else if (tfpassword.getText().equals(tfconfirmpassword.getText()) == false){
-    		view.loadPage("Alert",stage);
-    		System.out.println("nessun password");
+    	if (tfName.getText().isEmpty() || tfSurname.getText().isEmpty() || tfEmail.getText().isEmpty() || 
+    		tfPassword.getText().isEmpty() || tfOkPwd.getText().isEmpty()) {   		
+    		alertDisplay("Not enough Credentials");
+    		clearState();    	
+    	} else if(lbRole.getText().equals(noRole)) {
+    		alertDisplay(noRole);
+    		clearState();	
+    	} else if (tfCondominiumCode.getText().isEmpty()) {
+    		alertDisplay("No CC");
+    		clearState(); 
+    	} else if (!tfPassword.getText().equals(tfOkPwd.getText())){
+    		System.out.println("incorrect pass");
+    		alertDisplay("incorrect pass");
+    		clearState(); 
     	} else { 
-    		RadioButton selectedRadioButton = (RadioButton) grup.getSelectedToggle();
-    		String toogleGroupValue = selectedRadioButton.getText();
-    		role = Role.valueOf(toogleGroupValue);
-    		UserBean bean = createBean(tfname.getText(),tfsurname.getText(),tfemail.getText(),tfpassword.getText(),role,tfcondominiumCode.getText());
-    		RegisterController controller = new RegisterController();
-    	}    	 
+    		System.out.println("OK");
+    	}        	
+ 
+    }
+    
+    private void alertDisplay(String message){
+    	AlertBox alert = new AlertBox();
+    	alert.display("Condominium/Register/error!", message);
+    }
+    
+    private void clearState(){ 
+    	tfName.setText("");
+    	tfSurname.setText("");
+    	tfEmail.setText("");
+    	tfPassword.setText("");
+    	tfOkPwd.setText("");
+    	lbRole.setText(noRole);
+    	tfCondominiumCode.setText("");
     }
     
     public UserBean createBean(String name,String surname,String email, String password,Role role,String condominiumCode) {
